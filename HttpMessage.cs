@@ -67,7 +67,7 @@ namespace Resurfaceio
                 }
             }
         }
-        // TODO copy reqeust params from query + form + cookies + server vars
+        // TODO copy request params from query + form + cookies + server vars
         private static void appendRequestParams(List<string[]> message, HttpRequest request)
         {
             foreach (var paramKey in request.Query.Keys)
