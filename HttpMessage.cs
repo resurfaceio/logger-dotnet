@@ -24,14 +24,12 @@ namespace Resurfaceio
 
 
             // TODO copy data from session if configured
-            // if (logger.rules.copy_session_field.Count != 0) {
-                // TODO check if System.Web.HttpContext can be used instead
-                // Since it has a HttpContext.Session property
-                // Microsoft.AspNetCore.Http.HttpContext is currenty in use, and it does not
+            // if (logger.rules.copy_session_field.Count != 0)
+            // {
             // }
 
             // add timing details
-            if (now == 0) now = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+            if (now == 0) now = DateTime.UtcNow.Subtract(DateTime.UnixEpoch).Ticks / TimeSpan.TicksPerMillisecond;
             message.Add(new string[]{"now", now.ToString()});
             if (interval != 0) message.Add(new string[]{"interval", interval.ToString()});
 
@@ -69,9 +67,7 @@ namespace Resurfaceio
                 }
             }
         }
-        // TODO check if System.Web.HttpContext can be used instead
-        // Since its request.Params includes query + form + cookies + server
-        // Microsoft.AspNetCore.Http.HttpContext is currenty in use, and it ony has request.Query
+        // TODO copy reqeust params from query + form + cookies + server vars
         private static void appendRequestParams(List<string[]> message, HttpRequest request)
         {
             foreach (var paramKey in request.Query.Keys)
