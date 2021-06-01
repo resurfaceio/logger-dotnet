@@ -15,23 +15,35 @@ Easily log API requests and responses to your own <a href="https://resurface.io"
 
 ## Dependencies
 
-// TODO
+Requires .NET 5 or later. No other dependencies to conflict with your app.
 
 <a name="installing_with_nuget"/>
 
 ## Installing with NuGet
 
-// TODO
-
-Coming soon
+`dotnet add package TestUsageLogger`
 
 <a name="logging_from_asp_dotnet"/>
 
 ## Logging From ASP.NET
 
-// TODO
+After <a href="#installing_with_nuget">installing the module</a>, add the following call to the Resurface middleware on `Startup.Configure`:
 
-Coming soon
+```csharp
+using Resurfaceio;
+
+public class Startup
+{
+    // ...
+    
+    public void Configure(IApplicationBuilder app)
+    {
+        app.UseHttpLoggerForNET();
+        
+        // ...
+    }
+}
+```
 
 ## Logging With API
 
