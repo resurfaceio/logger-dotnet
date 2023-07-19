@@ -6,7 +6,7 @@
     <PackageId>UsageLogger</PackageId>
     <Version>0.0.1</Version>
     <Authors>Ramon</Authors>
-    <Company>Resurface Labs</Company>
+    <Company>resurface.io</Company>
   </PropertyGroup>
 
   <ItemGroup>
